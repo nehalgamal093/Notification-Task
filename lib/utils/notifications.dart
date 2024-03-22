@@ -1,5 +1,8 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
+//To make notification pop up on the screen.
+//If you clicked the button show notification in home screen, It will show the pop up notification.
+
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 Future<void> _initializeNotificationPlugin() async {
@@ -11,7 +14,6 @@ Future<void> _initializeNotificationPlugin() async {
 }
 
 Future<void> showNotification(String name, String body) async {
-  // Create notification details with desired customization
   const NotificationDetails notificationDetails = NotificationDetails(
     android: AndroidNotificationDetails(
         'main_channel',
@@ -24,11 +26,10 @@ Future<void> showNotification(String name, String body) async {
         )),
   );
 
-  // Show the notification immediately
   await flutterLocalNotificationsPlugin.show(
-    0, // Notification ID (unique for each notification)
-    name, // Title
-    body, // Body text
+    0,
+    name,
+    body,
     notificationDetails,
   );
 }

@@ -66,12 +66,8 @@ class Login {
       if (responseModel.token != null) {
         getDeviceToken();
         String token = responseModel.token;
-        String userId = responseModel.id;
-        String userRole = responseModel.user.role;
         SharedPreferences prefs = await SharedPreferences.getInstance();
         var saveLogin = prefs.getBool('saveLogin') ?? false;
-        prefs.setString('userId', userId);
-        prefs.setString('userRole', userRole);
         if (saveLogin) {
           prefs.setString("token", token);
         }
